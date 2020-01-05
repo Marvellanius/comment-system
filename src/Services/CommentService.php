@@ -6,6 +6,7 @@ namespace Commentsystem\Services;
 
 use Commentsystem\DAL\CommentRepository;
 use Commentsystem\Factories\CommentFactory;
+use Commentsystem\Models\Comment;
 
 class CommentService
 {
@@ -16,6 +17,16 @@ class CommentService
     {
         $this->repository = new CommentRepository();
         $this->factory = new CommentFactory();
+    }
+
+    public function find(string $id): Comment
+    {
+        return $this->factory->createFromDAO($this->repository->find($id));
+    }
+
+    public function listCommentTreeForComment(string $id): array
+    {
+        return $this->repository->getCommentTreeWithRootCommentId($id);
     }
 
     public function getCommentTreeForComments(array $comment_ids): array

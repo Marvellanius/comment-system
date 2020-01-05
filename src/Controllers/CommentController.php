@@ -3,8 +3,8 @@
 namespace Commentsystem\Controllers;
 
 use Commentsystem\Request;
-use Commentsystem\DAL\CommentRepository;
 use Commentsystem\Response;
+use Commentsystem\Services\CommentService;
 
 class CommentController
 {
@@ -12,12 +12,12 @@ class CommentController
 
     public function __construct()
     {
-        $this->repository = new CommentRepository();
+        $this->service = new CommentService();
     }
 
     public function get(Request $request, Response $response): Response
     {
-        $comment = $this->repository->find($request->get('id'));
+        $comment = $this->service->find($request->get('id'));
         $body = [
             'results' => $comment
         ];
@@ -28,7 +28,7 @@ class CommentController
 
     public function listCommentTreeForComment(Request $request, Response $response): Response
     {
-        $comments = $this->repository->getCommentTreeWithRootCommentId($request->get('id'));
+        $comments = $this->service->getCommentTreeWithRootCommentId($request->get('id'));
 
         $body = [
             'results' => $comments
