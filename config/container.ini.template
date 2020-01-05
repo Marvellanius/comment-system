@@ -1,0 +1,5 @@
+[database]
+name = comment-system
+username = testuser
+password = test1234
+hostname = localhost

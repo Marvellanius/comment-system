@@ -1,0 +1,24 @@
+# Composer
+vendor
+composer.phar
+
+# IntelliJ - PhpStorm
+.idea
+*.ipr
+*.iws
+
+# Logs
+logs
+error.log
+access.log
+
+build/
+dist/
+
+# Mac OSX
+.DS_Store
+# Thumbnails
+._*
+
+.env
+.phpunit.*
