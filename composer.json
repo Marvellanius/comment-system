@@ -2,7 +2,7 @@
     "name": "dick/comment-system",
     "type": "standard",
     "description": "A proof of concept nested comment-system",
-    "homepage": "https://github.com/Marvellanius/comment-system-poc",
+    "homepage": "https://github.com/Marvellanius/comment-system",
     "license": "MIT",
     "autoload": {
         "psr-4": {
